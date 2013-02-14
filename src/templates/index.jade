@@ -27,12 +27,17 @@ html(lang='en')
       section#cases
         h2 Case Studies
         .row
-          each c in contents.cases._.pages
+          each c in contents.cases
+            - var b = c['blurb.md']
+            - var q = c['quote.md']
             .span4
-              h3!= c.title
+              h3!= b.title
+              p!= b.html
               - var i = Math.random() * 10
-              img(src="http://hhhhold.com/s?" + i)
-              p!= c.html
+              img(src="http://hhhhold.com/300x200?" + i)
+              .quote
+                img.span1(src="http://hhhhold.com/50x50/" + (i + 1))
+                p.span3!= q.html
 
       section#packages
         h2 Packages
