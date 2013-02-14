@@ -1,8 +1,7 @@
 ---
 title: Philosophy
+tag: The name should fit.
 ---
-
-The name should fit.
 
 Whether it's a budding startup, a high-class fundraiser, or a cute new puppy, we create names catered to our clients' style and needs.
 

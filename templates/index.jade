@@ -9,18 +9,27 @@ html(lang='en')
 
   body
     .container
-      h1
-        = locals.title
-        small.tagline= locals.tagline
+      .page-header
+        h1= locals.title
+          small.tagline= locals.tagline
 
-      section#philosophy
-           != contents['philosophy.md'].html
+      //-- console.log(contents)
+      - var phil = contents['philosophy.md']
+      .hero-unit
+        .row
+          .span5
+            h2= phil.metadata.tag
+            p!= phil.html
+          .span4.offset1
+            #big-image
+              img(src="http://hhhhold.com/500x400")
 
       section#cases
+        h2 Case Studies
         .row
           each c in contents.cases._.pages
             .span4
-              h4!= c.title
+              h3!= c.title
               - var i = Math.random() * 10
               img(src="http://hhhhold.com/s?" + i)
               p!= c.html
@@ -30,7 +39,7 @@ html(lang='en')
         .row
           each p in contents.packages._.pages
             .span4
-              h4!= p.title
+              h3!= p.title
               p!= p.html
 
       section#contact
