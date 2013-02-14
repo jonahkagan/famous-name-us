@@ -1,0 +1,52 @@
+!!! 5
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title= locals.title
+    link(href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css",
+          rel="stylesheet")
+    link(href="main.css", rel="stylesheet")
+
+  body
+    .container
+      h1
+        = locals.title
+        small.tagline= locals.tagline
+
+      section#philosophy
+           != contents['philosophy.md'].html
+
+      section#cases
+        .row
+          each c in contents.cases._.pages
+            .span4
+              h4!= c.title
+              - var i = Math.random() * 10
+              img(src="http://hhhhold.com/s?" + i)
+              p!= c.html
+
+      section#packages
+        h2 Packages
+        .row
+          each p in contents.packages._.pages
+            .span4
+              h4!= p.title
+              p!= p.html
+
+      section#contact
+        h2 Get in touch
+        p!= contents['how-it-works.md'].html
+        .row
+          .span6
+            form.form-horizontal
+              .control-group
+                label.control-label Name
+                .controls: input(type="text")
+              .control-group
+                label.control-label Email
+                .controls: input(type="email")
+              .control-group
+                .controls
+                  textarea.span4(rows="8")
+              .form-actions
+                  button.btn(type="submit") Name us!
