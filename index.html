@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -147,3 +147,64 @@
     </div>
   </body>
 </html>
+-->
+
+<!-- Version 2-->
+
+!!! 5
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title= locals.title
+    link(href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css",
+          rel="stylesheet")
+    link(href="main.css", rel="stylesheet")
+
+  body
+    .container
+      .page-header
+        h1= locals.title
+          small.tagline= locals.tagline
+
+      //-- console.log(contents)
+      - var phil = contents['philosophy.md']
+      .hero-unit
+        .row
+          .span5
+            h2= phil.metadata.tag
+            p!= phil.html
+          .span4.offset1
+            #big-image
+              img(src="http://hhhhold.com/500x400")
+
+      section#cases
+        h2 Testimonials
+        .row
+          each c in contents.cases
+            - var b = c['blurb.md']
+            - var q = c['quote.md']
+            .span4
+              h3!= b.title
+              p!= b.html
+              - var i = Math.random() * 10
+              img(src="http://hhhhold.com/300x200?" + i)
+              .quote
+                img.span1(src="http://hhhhold.com/50x50/" + (i + 1))
+                p.span3!= q.html
+
+      section#packages
+        h2 Packages
+        .row
+          each p in contents.packages._.pages
+            .span4
+              h3!= p.title
+              p!= p.html
+
+      section#contact
+        h2 Get in touch
+        p!= contents['how-it-works.md'].html
+        .row
+          .span6
+            iframe(src='https://docs.google.com/forms/d/1nkLEOQ_ROy4f35Bz7JG2w1eXmfIUa6X0tpAPco6hHzU/viewform?embedded=true', width='760', height='500', frameborder='0', marginheight='0', marginwidth='0') Loading...
+
+
