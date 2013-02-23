@@ -52,15 +52,5 @@ html(lang='en')
         p!= contents['how-it-works.md'].html
         .row
           .span6
-            form.form-horizontal
-              .control-group
-                label.control-label Name
-                .controls: input(type="text")
-              .control-group
-                label.control-label Email
-                .controls: input(type="email")
-              .control-group
-                .controls
-                  textarea.span4(rows="8")
-              .form-actions
-                  button.btn(type="submit") Name us!
+            iframe(src='https://docs.google.com/forms/d/1nkLEOQ_ROy4f35Bz7JG2w1eXmfIUa6X0tpAPco6hHzU/viewform?embedded=true', width='760', height='500', frameborder='0', marginheight='0', marginwidth='0') Loading...
+
